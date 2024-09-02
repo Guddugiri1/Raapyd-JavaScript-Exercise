@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Array</title>
+</head>
+
+<body>
+    <h1>Sort Array of Numbers</h1>
+    <div>
+        <label for="arrayInput">Enter numbers (comma separated):</label>
+        <input type="text" id="arrayInput" placeholder="e.g. 5, 3, 8, 1">
+    </div>
+    <button onclick="sortArray()">Sort</button>
+    <h2>Results:</h2>
+    <p>Ascending: <span id="ascendingResult"></span></p>
+    <p>Descending: <span id="descendingResult"></span></p>
+
+    <script>
+        function sortArray() {
+            // Get the input value
+            const input = document.getElementById('arrayInput').value;
+
+            // Convert the input string to an array of numbers
+            const numberArray = input.split(',').map(num => parseFloat(num.trim()));
+
+            // Sort the array in ascending order
+            const ascendingArray = [...numberArray].sort((a, b) => a - b);
+
+            // Sort the array in descending order
+            const descendingArray = [...numberArray].sort((a, b) => b - a);
+
+            // Display the results
+            document.getElementById('ascendingResult').textContent = ascendingArray.join(', ');
+            document.getElementById('descendingResult').textContent = descendingArray.join(', ');
+        }
+    </script>
+</body>
+
+</html>
